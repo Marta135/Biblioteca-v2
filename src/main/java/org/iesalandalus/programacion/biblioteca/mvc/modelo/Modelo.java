@@ -10,27 +10,32 @@ import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Alumno;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Curso;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Prestamo;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.IAlumnos;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.ILibros;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.IPrestamos;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.memoria.Alumnos;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.memoria.Libros;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.memoria.Prestamos;
 
-public class Modelo {
+public class Modelo implements IModelo{
 
 	/*********ATRIBUTOS*********/
 	
-	private Alumnos alumnos;
-	private Libros libros;
-	private Prestamos prestamos;
+	private IAlumnos alumnos;
+	private ILibros libros;
+	private IPrestamos prestamos;
 	
 	
 	/*******CONSTRUCTOR*******/
 	/**
-	 * Constructor por defecto:
+	 * Constructor con parámetros:
+	 * Acepta como parámetro una fuente de datos, crea los objetos llamando a
+	 * los métodos de la interfaz IFuenteDatos. 
 	 */
-	public Modelo() {
-		alumnos = new Alumnos();
-		libros = new Libros();
-		prestamos = new Prestamos();
+	public Modelo(IFuenteDatos fuenteDatos) {
+		alumnos = fuenteDatos.crearAlumnos();
+		libros = fuenteDatos.crearLibros();
+		prestamos = fuenteDatos.crearPrestamos();
 	}
 	
 

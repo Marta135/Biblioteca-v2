@@ -1,4 +1,4 @@
-package org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio;
+package org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.memoria;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -9,8 +9,9 @@ import javax.naming.OperationNotSupportedException;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.AudioLibro;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.LibroEscrito;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.ILibros;
 
-public class Libros {
+public class Libros implements ILibros{
 
 	/*********ATRIBUTOS*********/
 	

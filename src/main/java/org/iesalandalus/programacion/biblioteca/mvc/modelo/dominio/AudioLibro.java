@@ -4,8 +4,8 @@ public class AudioLibro extends Libro {
 
 	/*********ATRIBUTOS*********/
 	
-	private static final int PAGINAS_PARA_RECOMPENSA = 25;
-	private static final float PUNTOS_PREMIO = 0.5f;
+	private static final int MINUTOS_PARA_RECOMPENSA = 15;
+	private static final float PUNTOS_PREMIO = 0.25f;
 	private int duracion;
 	
 	
@@ -62,7 +62,7 @@ public class AudioLibro extends Libro {
 	 * @return puntos
 	 */
 	public float getPuntos() {
-		return (duracion / PAGINAS_PARA_RECOMPENSA + 1) * PUNTOS_PREMIO;
+		return (duracion / MINUTOS_PARA_RECOMPENSA + 1) * PUNTOS_PREMIO;
 	}
 	
 
@@ -94,8 +94,4 @@ public class AudioLibro extends Libro {
 		return String.format("título=%s, autor=%s, duración=%s", titulo, autor, duracion);
 	}
 
-	
-	
-	
-	
 }

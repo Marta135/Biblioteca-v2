@@ -123,7 +123,9 @@ public class Prestamo {
 		if (libro == null) {
 			throw new NullPointerException("ERROR: El libro no puede ser nulo.");
 		}
-		this.libro = new Libro(libro);
+		if (libro instanceof LibroEscrito) {
+			this.libro = new LibroEscrito((LibroEscrito)libro);
+		}
 	}
 	
 	/**

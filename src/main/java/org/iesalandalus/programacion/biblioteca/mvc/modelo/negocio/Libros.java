@@ -7,6 +7,7 @@ import java.util.List;
 import javax.naming.OperationNotSupportedException;
 
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.LibroEscrito;
 
 public class Libros {
 
@@ -42,7 +43,9 @@ public class Libros {
 	private List<Libro> copiaProfundaLibros() throws NullPointerException, IllegalArgumentException {
 		List<Libro> copiaLibros = new ArrayList<>();
 		for (Libro libro : coleccionLibros) {
-			copiaLibros.add(new Libro(libro));
+			if (libro instanceof LibroEscrito) {
+				copiaLibros.add(new LibroEscrito((LibroEscrito)libro));
+			}
 		}
 		return copiaLibros;
 	}
@@ -70,7 +73,9 @@ public class Libros {
 		}
 		int indice = coleccionLibros.indexOf(libro);
 		if (indice == -1) {
-			coleccionLibros.add(new Libro(libro));
+			if (libro instanceof LibroEscrito) {
+				coleccionLibros.add(new LibroEscrito((LibroEscrito)libro));
+			}
 		} else {
 			throw new OperationNotSupportedException("ERROR: Ya existe un libro con ese título y autor.");
 		}
@@ -90,8 +95,11 @@ public class Libros {
 		if (indice == -1) {
 			return null;
 		} else {
-			return new Libro(coleccionLibros.get(indice));
+			if (libro instanceof LibroEscrito) {
+				return new LibroEscrito((LibroEscrito)coleccionLibros.get(indice));
+			}
 		}
+		return libro;
 	}
 	
 	/**

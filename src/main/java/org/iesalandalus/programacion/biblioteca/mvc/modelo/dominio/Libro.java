@@ -10,6 +10,7 @@ public abstract class Libro {
 	
 	
 	/*******CONSTRUCTORES*******/
+	
 	/**
 	 * Constructor con parámetros.
 	 * @param titulo: Título del libro.

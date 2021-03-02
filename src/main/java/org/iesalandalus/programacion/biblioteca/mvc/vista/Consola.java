@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Alumno;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Curso;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.LibroEscrito;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Prestamo;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
@@ -113,13 +114,25 @@ public class Consola {
 	 * @return Libro
 	 */
 	public static Libro leerLibro() {
+		Libro libro = null;
+		int tipoLibro = 0;
 		System.out.print("Introduce el título del libro: ");
 		String titulo = Entrada.cadena();
 		System.out.print("Introduce el autor del libro: ");
 		String autor = Entrada.cadena();
-		System.out.print("Introduce el número de páginas del libro: ");
-		int numPaginas = Entrada.entero();
-		return new Libro(titulo, autor, numPaginas);
+		
+		do {
+			System.out.println("Introduce el tipo de libro:");
+			System.out.println("1.- Libro Escrito");
+			tipoLibro = Entrada.entero();
+		} while (tipoLibro>1);
+		
+		if (tipoLibro == 1) {
+			System.out.print("Introduce el número de páginas del libro: ");
+			int numPaginas = Entrada.entero();
+			libro = new LibroEscrito(titulo, autor, numPaginas);
+		}
+		return libro;
 	}
 	
 	/**

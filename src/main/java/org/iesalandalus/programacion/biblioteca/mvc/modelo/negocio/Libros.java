@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.naming.OperationNotSupportedException;
 
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.AudioLibro;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.LibroEscrito;
 
@@ -46,6 +47,9 @@ public class Libros {
 			if (libro instanceof LibroEscrito) {
 				copiaLibros.add(new LibroEscrito((LibroEscrito)libro));
 			}
+			if (libro instanceof AudioLibro) {
+				copiaLibros.add(new AudioLibro((AudioLibro)libro));
+			}
 		}
 		return copiaLibros;
 	}
@@ -76,6 +80,9 @@ public class Libros {
 			if (libro instanceof LibroEscrito) {
 				coleccionLibros.add(new LibroEscrito((LibroEscrito)libro));
 			}
+			if (libro instanceof AudioLibro) {
+				coleccionLibros.add(new AudioLibro((AudioLibro)libro));
+			}
 		} else {
 			throw new OperationNotSupportedException("ERROR: Ya existe un libro con ese título y autor.");
 		}
@@ -97,6 +104,9 @@ public class Libros {
 		} else {
 			if (libro instanceof LibroEscrito) {
 				return new LibroEscrito((LibroEscrito)coleccionLibros.get(indice));
+			}
+			if (libro instanceof AudioLibro) {
+				return new AudioLibro((AudioLibro)coleccionLibros.get(indice));
 			}
 		}
 		return libro;

@@ -112,6 +112,12 @@ public class Prestamo {
 	 * @return libro
 	 */
 	public Libro getLibro() {
+		Libro libro = null;
+		if (this.libro instanceof LibroEscrito) {
+			libro = new LibroEscrito((LibroEscrito)this.libro);
+		} else if (this.libro instanceof AudioLibro) {
+			libro = new AudioLibro((AudioLibro)this.libro);
+		}
 		return libro;
 	}
 	
@@ -125,6 +131,8 @@ public class Prestamo {
 		}
 		if (libro instanceof LibroEscrito) {
 			this.libro = new LibroEscrito((LibroEscrito)libro);
+		} else if (libro instanceof AudioLibro) {
+			this.libro = new AudioLibro((AudioLibro)libro);
 		}
 	}
 	

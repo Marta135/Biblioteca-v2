@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Alumno;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.AudioLibro;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Curso;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.LibroEscrito;
@@ -124,13 +125,18 @@ public class Consola {
 		do {
 			System.out.println("Introduce el tipo de libro:");
 			System.out.println("1.- Libro Escrito");
+			System.out.println("2.- Audio Libro");
 			tipoLibro = Entrada.entero();
-		} while (tipoLibro>1);
+		} while (tipoLibro<1 || tipoLibro>2);
 		
 		if (tipoLibro == 1) {
 			System.out.print("Introduce el número de páginas del libro: ");
 			int numPaginas = Entrada.entero();
 			libro = new LibroEscrito(titulo, autor, numPaginas);
+		} else {
+			System.out.print("Introduce la duración del libro: ");
+			int duracion = Entrada.entero();
+			libro = new AudioLibro(titulo, autor, duracion);
 		}
 		return libro;
 	}

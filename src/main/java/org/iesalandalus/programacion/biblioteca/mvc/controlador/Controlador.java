@@ -6,19 +6,19 @@ import java.util.Map;
 
 import javax.naming.OperationNotSupportedException;
 
-import org.iesalandalus.programacion.biblioteca.mvc.modelo.Modelo;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.IModelo;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Alumno;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Curso;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Prestamo;
-import org.iesalandalus.programacion.biblioteca.mvc.vista.Vista;
+import org.iesalandalus.programacion.biblioteca.mvc.vista.IVista;
 
-public class Controlador {
+public class Controlador  implements IControlador{
 
 	/*********ATRIBUTOS*********/
 	
-	private Vista vista;
-	private Modelo modelo;
+	private IVista vista;
+	private IModelo modelo;
 	
 	
 	/*******CONSTRUCTOR*******/
@@ -26,15 +26,16 @@ public class Controlador {
 	/**
 	 * Constructor con parámetros.
 	 * @param modelo
-	 * @param vista
+	 * @param vistaTexto
 	 */
-	public Controlador(Modelo modelo, Vista vista) {
+	public Controlador(IModelo modelo, IVista vista) {
 		if (modelo == null) {
 			throw new IllegalArgumentException("ERROR: El modelo no puede ser nulo.");
 		}
 		if (vista == null) {
 			throw new IllegalArgumentException("ERROR: La vista no puede ser nula.");
 		}
+		
 		this.modelo = modelo;
 		this.vista = vista;
 		this.vista.setControlador(this);

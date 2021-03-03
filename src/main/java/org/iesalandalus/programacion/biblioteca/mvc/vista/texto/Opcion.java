@@ -1,4 +1,4 @@
-package org.iesalandalus.programacion.biblioteca.mvc.vista;
+package org.iesalandalus.programacion.biblioteca.mvc.vista.texto;
 
 public enum Opcion {
 
@@ -97,7 +97,7 @@ public enum Opcion {
 	/*********ATRIBUTOS*********/
 	
 	private String mensaje;
-	private static Vista vista;
+	private static VistaTexto vista;
 	
 	
 	/********OTROS MÉTODOS********/
@@ -118,9 +118,9 @@ public enum Opcion {
 	
 	/**
 	 * Método que asigna el valor pasado al atributo vista.
-	 * @param vista
+	 * @param vistaTexto
 	 */
-	protected static void setVista(Vista vista) {
+	protected static void setVista(VistaTexto vista) {
 		Opcion.vista = vista;
 	}
 	

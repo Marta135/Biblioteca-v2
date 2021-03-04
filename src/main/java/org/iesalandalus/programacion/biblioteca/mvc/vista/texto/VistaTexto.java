@@ -252,16 +252,21 @@ public class VistaTexto implements IVista {
 	 */
 	public void listarPrestamosAlumno() {
 		Consola.mostrarCabecera("LISTADO DE PRÉSTAMOS POR ALUMNO");
-		List<Prestamo> prestamos =  controlador.getPrestamos(Consola.leerAlumno());
-		if (!prestamos.isEmpty()) {
-			for (Prestamo prestamo : prestamos) {
-				if (prestamo != null) {
-					System.out.println(prestamo);
+		try {
+			List<Prestamo> prestamos =  controlador.getPrestamos(Consola.leerAlumno());
+			if (!prestamos.isEmpty()) {
+				for (Prestamo prestamo : prestamos) {
+					if (prestamo != null) {
+						System.out.println(prestamo);
+					}
 				}
+			} else {
+				System.out.println("No hay préstamos de dicho alumno.");
 			}
-		} else {
-			System.out.println("No hay préstamos de dicho alumno.");
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
 		}
+		
 	}
 
 	/**
@@ -269,16 +274,21 @@ public class VistaTexto implements IVista {
 	 */
 	public void listarPrestamosLibro() {
 		Consola.mostrarCabecera("LISTADO DE PRÉSTAMOS POR LIBRO");
-		List<Prestamo> prestamos = controlador.getPrestamos(Consola.leerLibro());
-		if (!prestamos.isEmpty()) {
-			for (Prestamo prestamo : prestamos) {
-				if (prestamo != null){
-					System.out.println(prestamo);
+		try {
+			List<Prestamo> prestamos = controlador.getPrestamos(Consola.leerLibro());
+			if (!prestamos.isEmpty()) {
+				for (Prestamo prestamo : prestamos) {
+					if (prestamo != null){
+						System.out.println(prestamo);
+					}
 				}
+			} else {
+				System.out.println("No hay préstamos de dicho libro.");
 			}
-		} else {
-			System.out.println("No hay préstamos de dicho libro.");
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
 		}
+		
 	}
 	
 	/**
@@ -286,16 +296,21 @@ public class VistaTexto implements IVista {
 	 */
 	public void listarPrestamosFecha() {
 		Consola.mostrarCabecera("LISTADO DE PRÉSTAMOS POR FECHA");
-		List<Prestamo> prestamos = controlador.getPrestamos(Consola.leerFecha());
-		if (!prestamos.isEmpty()) {
-			for (Prestamo prestamo : prestamos) {
-				if (prestamo != null) {
-					System.out.println(prestamo);
+		try {
+			List<Prestamo> prestamos = controlador.getPrestamos(Consola.leerFecha());
+			if (!prestamos.isEmpty()) {
+				for (Prestamo prestamo : prestamos) {
+					if (prestamo != null) {
+						System.out.println(prestamo);
+					}
 				}
+			} else {
+				System.out.println("No hay préstamos de dicha fecha.");
 			}
-		} else {
-			System.out.println("No hay préstamos de dicha fecha.");
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
 		}
+		
 	}
 	
 	/**
@@ -303,12 +318,17 @@ public class VistaTexto implements IVista {
 	 */
 	public void mostrarEstadisticaMensualPorCurso() {
 		Consola.mostrarCabecera("ESTADÍSTICA MENSUAL POR CURSO");
-		Map<Curso, Integer> estadisticasMensualesPorCurso = controlador.getEstadisticaMensualPorCurso(Consola.leerFecha());
-		if (!estadisticasMensualesPorCurso.isEmpty()) {
-			System.out.println(estadisticasMensualesPorCurso);
-		} else {
-			System.out.println("No hay estadísticas mensuales a mostrar para ese mes");
+		try {
+			Map<Curso, Integer> estadisticasMensualesPorCurso = controlador.getEstadisticaMensualPorCurso(Consola.leerFecha());
+			if (!estadisticasMensualesPorCurso.isEmpty()) {
+				System.out.println(estadisticasMensualesPorCurso);
+			} else {
+				System.out.println("No hay estadísticas mensuales a mostrar para ese mes");
+			}
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
 		}
+		
 	}
 
 }

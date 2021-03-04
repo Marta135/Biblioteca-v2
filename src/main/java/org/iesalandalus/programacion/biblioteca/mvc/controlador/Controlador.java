@@ -26,7 +26,7 @@ public class Controlador  implements IControlador{
 	/**
 	 * Constructor con parámetros.
 	 * @param modelo
-	 * @param vistaTexto
+	 * @param vista
 	 */
 	public Controlador(IModelo modelo, IVista vista) {
 		if (modelo == null) {
@@ -203,7 +203,7 @@ public class Controlador  implements IControlador{
 	/**
 	 * Método que llama a otro de la clase Modelo para mostrar las estadísticas mensuales.
 	 * @param fecha
-	 * @return
+	 * @return getEstadisticaMensualPorCurso
 	 */
 	public Map<Curso, Integer> getEstadisticaMensualPorCurso(LocalDate fecha) {
 		return modelo.getEstadisticaMensualPorCurso(fecha);

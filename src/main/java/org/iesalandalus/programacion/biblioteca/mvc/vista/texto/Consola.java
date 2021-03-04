@@ -127,7 +127,7 @@ public class Consola {
 			System.out.println("1.- Libro Escrito");
 			System.out.println("2.- Audio Libro");
 			tipoLibro = Entrada.entero();
-		} while (tipoLibro<1 || tipoLibro>2);
+		} while (tipoLibro<1 && tipoLibro>2);
 		
 		if (tipoLibro == 1) {
 			System.out.print("Introduce el número de páginas del libro: ");

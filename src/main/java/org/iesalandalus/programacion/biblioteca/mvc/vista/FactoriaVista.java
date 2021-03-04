@@ -10,7 +10,7 @@ public enum FactoriaVista {
 		}
 	};
 	
-	FactoriaVista(){	
+	FactoriaVista() {	
 	}
 	
 	public abstract IVista crear();

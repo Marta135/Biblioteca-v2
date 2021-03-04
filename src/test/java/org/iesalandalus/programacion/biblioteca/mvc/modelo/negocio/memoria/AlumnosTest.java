@@ -14,7 +14,6 @@ import javax.naming.OperationNotSupportedException;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Alumno;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Curso;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.IAlumnos;
-import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.memoria.Alumnos;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

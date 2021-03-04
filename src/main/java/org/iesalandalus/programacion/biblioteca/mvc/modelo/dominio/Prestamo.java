@@ -60,8 +60,6 @@ public class Prestamo {
 		if(libro == null) {
 			throw new NullPointerException("ERROR: El libro no puede ser nulo.");
 		}
-		alumno = Alumno.getAlumnoFicticio(alumno.getCorreo());
-		libro = Libro.getLibroFicticio(libro.getTitulo(), libro.getAutor());
 		return new Prestamo(alumno, libro, LocalDate.now());
 	}
 	

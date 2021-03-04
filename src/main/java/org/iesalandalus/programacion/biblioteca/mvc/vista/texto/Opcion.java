@@ -118,7 +118,7 @@ public enum Opcion {
 	
 	/**
 	 * Método que asigna el valor pasado al atributo vista.
-	 * @param vistaTexto
+	 * @param vista
 	 */
 	protected static void setVista(VistaTexto vista) {
 		Opcion.vista = vista;

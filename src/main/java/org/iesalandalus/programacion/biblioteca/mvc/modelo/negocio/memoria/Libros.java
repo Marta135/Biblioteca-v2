@@ -47,7 +47,7 @@ public class Libros implements ILibros{
 		for (Libro libro : coleccionLibros) {
 			if (libro instanceof LibroEscrito) {
 				copiaLibros.add(new LibroEscrito((LibroEscrito)libro));
-			}
+			} 
 			if (libro instanceof AudioLibro) {
 				copiaLibros.add(new AudioLibro((AudioLibro)libro));
 			}
@@ -80,7 +80,7 @@ public class Libros implements ILibros{
 		if (indice == -1) {
 			if (libro instanceof LibroEscrito) {
 				coleccionLibros.add(new LibroEscrito((LibroEscrito)libro));
-			}
+			}  
 			if (libro instanceof AudioLibro) {
 				coleccionLibros.add(new AudioLibro((AudioLibro)libro));
 			}
@@ -105,7 +105,7 @@ public class Libros implements ILibros{
 		} else {
 			if (libro instanceof LibroEscrito) {
 				return new LibroEscrito((LibroEscrito)coleccionLibros.get(indice));
-			}
+			} 
 			if (libro instanceof AudioLibro) {
 				return new AudioLibro((AudioLibro)coleccionLibros.get(indice));
 			}

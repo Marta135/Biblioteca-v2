@@ -7,6 +7,8 @@ import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.IPrestamos;
 public interface IFuenteDatos {
 
 	IAlumnos crearAlumnos();
+	
 	ILibros crearLibros();	
+	
 	IPrestamos crearPrestamos();
 }
